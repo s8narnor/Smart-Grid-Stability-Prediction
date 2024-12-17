@@ -49,7 +49,7 @@ if choice == "Home":
     st.title("Smart Grid Stability⚡")
     
     # Upload your smart grid-related image here
-    st.image('images/smart-grids.jpg', caption='Smart Grid and Stability', use_container_width=True)
+    st.image('images/smart-grids.jpg', caption='Smart Grid Stability', use_container_width=True)
 
     st.subheader("Project Overview:")
     st.write("""
