@@ -4,3 +4,4 @@ numpy
 streamlit
 streamlit-option-menu
 joblib
+keras
