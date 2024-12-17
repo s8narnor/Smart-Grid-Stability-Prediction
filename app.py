@@ -1,9 +1,6 @@
 import streamlit as st
 import numpy as np
 import joblib
-import matplotlib.pyplot as plt
-import seaborn as sns
-import pandas as pd
 
 # Load the saved model
 loaded_model = joblib.load('sgs-model.sav')
