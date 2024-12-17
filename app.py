@@ -5,6 +5,7 @@ import joblib
 # Load the saved model
 loaded_model = joblib.load('sgs-model.sav')
 
+
 # Function to get user input for a single data point
 def get_input():
     input_data = []
@@ -49,11 +50,14 @@ if choice == "Home":
     st.title("Smart Grid Stability⚡")
     
     # Upload your smart grid-related image here
-    st.image('images/smart-grids.jpg', caption='Smart Grid Stability', use_container_width=True)
+    st.image('images/smart-grids.jpg', caption='Smart Grid and Stability', use_container_width=True)
 
     st.subheader("Project Overview:")
-    st.write("""
+    st.markdown("""
+    <div style="text-align: justify; font-size: 16px; line-height: 1.6;">
+
     #### Understanding Smart Grids:
+
     Grid stability refers to the ability of an electrical power grid to maintain a balance between energy production and consumption while responding effectively to fluctuations in voltage and frequency. Traditional power grids, often fueled by non-renewable energy sources like coal, oil, and natural gas, rely on centralized systems and synchronous generators to maintain this balance, making stability relatively straightforward to achieve.
     However, with the increasing integration of renewable energy sources, such as wind and solar, the dynamics of grid stability have become more complex. Unlike traditional energy systems, renewable energy is inherently variable and intermittent, requiring advanced mechanisms to ensure stability.
 
@@ -62,10 +66,10 @@ if choice == "Home":
 
     #### Renewable Energy Sources and Smart Grids:
     The rise of **renewable energy sources** offers a sustainable alternative to fossil fuels but brings new challenges:
-    
+            
     - **Prosumers**: Consumers who both produce and consume energy, making smart grids **bidirectional**.
     - **Complex Supply-Demand Management**: With more flexible generation sources, managing supply-demand and pricing decisions has become more challenging.
-    
+            
     These changes highlight the importance of **smart grid stability**.
 
     #### Objective:
@@ -91,24 +95,27 @@ if choice == "Home":
         - **Power Balance**: The total power consumed is equal to the total power generated: **`p1 = - (p2 + p3 + p4)`**.
 
     - **`g1`** to **`g4`**: Price elasticity coefficients (gamma), a real value within the range **0.05 to 1.00**.  
-        - `g1`: Corresponds to the supplier node.  
-        - `g2` to `g4`: Correspond to the consumer nodes.
-        
+         - `g1`: Corresponds to the supplier node.  
+         - `g2` to `g4`: Correspond to the consumer nodes.
+                
     #### Modeling Grid Stability:
     In **smart grids**, consumer demand data is evaluated against supply conditions, and pricing information is sent back to consumers. The objective is to dynamically estimate grid stability by considering both technical and economic factors. Researchers focus on the **Decentral Smart Grid Control (DSGC)** methodology, which monitors **grid frequency**, an important indicator of grid stability.
-    
+            
     - **Frequency**: AC frequency (in Hz) increases during excess generation and decreases during underproduction. This measurement provides critical information about power balance.
     - **DSGC Model**: Evaluates grid stability for a 4-node star architecture, accounting for:
-      - **Power balance** (nominal power at each node)
-      - **Reaction time** (how quickly participants adjust consumption/production in response to price)
-      - **Energy price elasticity**
-    """)
+    - **Power balance** (nominal power at each node)
+    - **Reaction time** (how quickly participants adjust consumption/production in response to price)
+    - **Energy price elasticity**
+    </div> """, unsafe_allow_html=True)
     
     # Add an image related to "Modeling Grid Stability"
     st.image('images/modeling-grid.png', caption='Modeling Grid Stability', use_container_width=True)
 
-    st.write("""
+    st.markdown("""
+    <div style="text-align: justify; font-size: 16px; line-height: 1.6;">
+
     #### Addressing Simplifications in the Model:
+
     While the mathematical model for predicting grid instability exists, its execution relies on significant simplifications. The DSGC model, based on differential equations, is often simulated with fixed values for some variables and fixed distributions for others. This leads to two main issues: **"fixed inputs issue"** and **"equality issue"**.
 
     To overcome these simplifications, **machine learning** techniques, such as **decision trees (CART)** and **space-filling designs**, are used. Here's how it works:
@@ -119,7 +126,7 @@ if choice == "Home":
     4. The resulting dataset is used by machine learning models to make predictions about grid stability.
     
     As a result, **CART-based learning** achieves accuracy rates of **around 80%** in predicting grid stability or instability.
-    """)
+    </div> """, unsafe_allow_html=True)
 
 # Prediction Tab: Predict stability of smart grids
 elif choice == "Prediction":
@@ -186,7 +193,8 @@ elif choice == "About":
 
     st.subheader("About the Project 🚀")
 
-    st.write("""
+    st.markdown("""
+    <div style="text-align: justify; font-size: 16px; line-height: 1.6;">
     
     This project uses the **"Electrical Grid Stability Simulated Dataset"** created by Vadim Arzamasov from the **Karlsruher Institut für Technologie** and donated to the **UCI Machine Learning Repository**. The dataset is publicly available [here](https://archive.ics.uci.edu/dataset/471/electrical+grid+stability+simulated+data).
     
@@ -195,10 +203,12 @@ elif choice == "About":
     - **"Taming Instabilities in Power Grid Networks by Decentralized Control"** (B. Schäfer et al., 2016) explores the **Decentral Smart Grid Control (DSGC)** model for assessing smart grid stability.
     - **"Towards Concise Models of Grid Stability"** (V. Arzamasov et al., 2018) addresses data-mining techniques to simplify DSGC models.
 
-    """)
+    </div> """, unsafe_allow_html=True)
 
     
-    st.write("""
+    st.markdown("""
+    <div style="text-align: justify; font-size: 16px; line-height: 1.6;">
+
     ##### Artificial Neural Network:
     
     The optimal artificial neural network (ANN) evaluated in this study reflects a sequential structure with:
@@ -215,7 +225,7 @@ elif choice == "About":
     - **Metric**: 'accuracy'
 
     Below is the ANN architecture visual representation:
-    """)
+    </div> """, unsafe_allow_html=True)
 
     # Adding the image
     st.image('images/ann.png', caption="Artificial Neural Network Architecture", use_container_width=True)
